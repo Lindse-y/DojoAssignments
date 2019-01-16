@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Slots Random</title>
+<script type="text/javascript">
+    function giveMeQuaters(maxNum){
+        var quarters=0;
+        quarters=Math.floor((Math.random() * maxNum) + 1);  //Create a number between 1 and MaxNum (in this case 20)
+        return quarters;
+    }
+    function winSlot(){
+        return Math.floor((Math.random() * 100) + 1);   //it returns a number between 1 and 100
+    }
+    
+    //Let's implement the game simulation
+    function mySlotSimulation(myPlayNumber){    //The function recieves a parameter that it is the number that you play.
+        
+        var numberOfCoins=0;     
+        numberOfCoins=giveMeQuaters(500);  //The random number of coins that I have to play, 500 means the max number of coins that I can get
+       
+        var numberOfCoinsInMachine=0;       //Random number of coins initialy in the slot machine, max=100
+        numberOfCoinsInMachine=giveMeQuaters(100);
+       
+        // Loop that simulates your play
+        while (numberOfCoins>0){
+            console.log("Number of coins ",numberOfCoins);  //just to print how many coins do I have left
+            if (myPlayNumber==winSlot()){       //If my number is equal to the random slot number I win
+                return numberOfCoins+numberOfCoinsInMachine;  // I return the left coins that i have in my pocket and the coins from the machine
+            }else{
+                numberOfCoinsInMachine=numberOfCoinsInMachine+1;  //I did not win, one of my coins is in the slotMachine
+            }
+            numberOfCoins=numberOfCoins-1;  //Each play I have to insert a coin into the slot machine, so it is a coin that is not anymore in my pocket
+        }
+        return 0;   //end of game, no more coins.
+    }
+</script>    
+</head>
+
+<body>
+
+<script type="text/javascript">
+    var resultOfGame=0;
+    resultOfGame=mySlotSimulation(30);  //Start
+    console.log("The result of my game is ",resultOfGame);
+</script>
+</body>
+</html>
