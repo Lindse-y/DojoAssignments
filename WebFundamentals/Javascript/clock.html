@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="UTF-8>"
+   <title>If you don't mind, could I have the time?</title>
+<Script language="JavaScript">
+   function checkTime(){
+        var form1 = document.forms[0];
+        var hour = form1.hour.value
+        var minute = form1.minute.value;
+        var period = form1.period.value;
+        alert(hour);
+        alert(minute);
+        alert(period);
+        if (hour == 8 && minute == 50 && period == "PM")  {
+            document.getElementById("labelTime").innerHTML = "It is almost 9 in the evening";
+        }
+        if (hour == 7 && minute == 15 && period == "PM") {
+             document.getElementById("labelTime").innerHTML = "It is quarter past seven";
+        }
+        return;
+    }
+    function checkDate(){
+        var form2 = document.forms[0];
+        var month = form2.month.value
+        var day = form2.day.value;
+        var year = form2.year.value;
+        alert(month);
+        alert(day);
+        alert(year);
+        if (month == January || month == February || month == March || month == November || month == December)  { //error here- "January not defined"
+            document.getElementById("labelDate").innerHTML = "It's cold out!";
+        }
+        if (month == April || month == May || month == June || month == July || month == August || month == September || month == October) {
+             document.getElementById("labelDate").innerHTML = "It's nice out!";
+        }
+        return;
+    }
+
+</Script>
+</head>
+<body>
+<form id="form">
+     Hour: <input type="text" id="hour"><br>
+     Minute: <input type="text" id="minute"><br>
+     AM or PM: <input type="text" id="period"><br>
+    <input type="button" onclick="checkTime();" value="Check Time">
+    <br>
+    <h4>If you don't mind, could I have the date?</h4>
+    <form id="form2">
+        Month: <input type="text" id="month"><br>
+        Day: <input type="text" id="day"><br>
+        Year: <input type="text" id="year"><br>
+       <input type="button" onclick="checkDate();" value="Check Date">
+</form>
+<p id="labelTime"></p>
+<p id="labelDate"></p>
+</body>
+</html>
