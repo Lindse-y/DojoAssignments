@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <script language="JavaScript">
+
+        //make a function that copies an array and only accepts items that are numbers
+
+    var myArray = [10, "Pete", -50, "Hizey", 0.01];
+function printNumbers(myArray){
+    var aOuput=[];      //to save the output array
+    for (var i=0;i<myArray.length;i++){     // I have to check all the elements of the input array and check
+        if (typeof(myArray[i])=="number"){   //check if the i-th cell is a number
+            aOuput.push(myArray[i]);    //this instruction adds an element to an Array
+        }
+    }
+    return aOuput;
+}
+
+    </script>
+
+  </body>
+</html>
